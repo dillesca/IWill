@@ -38,11 +38,12 @@ public class Database extends SQLiteOpenHelper {
 		//Alert table which assigns a date to the goals
 		db.execSQL("create table "+ tbl_alert +
 				   "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				   "id_goal INTEGER FOREIGN KEY, " +
+				   "id_goal INTEGER, " +
 				   "created_date DATETIME DEFAULT CURRENT_TIMESTAMP, " +
-                   "repeat_value INTEGER DEFAULT 0 " +
-                   "text_color CHAR(6) NULL DEFAULT '000000', " +
-				   "FOREIGN KEY(id_goal) REFERENCES tbl_goal(id) " +
+                   "repeat_value INTEGER DEFAULT 0, " +
+                   "text_color VARCHAR(6) NULL DEFAULT '000000', " +
+				   " CONSTRAINT id_goal" +
+                   "    FOREIGN KEY (`id_goal`) REFERENCES `tbl_goal`(`id`)" +
                     ")");
 		//History Table - which saves the alerts the user has accomplished
 		db.execSQL("create table " + tbl_history + 
@@ -143,6 +144,30 @@ public class Database extends SQLiteOpenHelper {
         this.close();
         return goal;
     }
+
+	public ArrayList<Goal> getYearGoals() {
+
+		Cursor cursor= getdata(tbl_goal,null,"type='Year'",null);
+		if(cursor.isClosed()) return null;
+		cursor.moveToFirst();
+		ArrayList<Goal> goals = new ArrayList<>();
+
+		while(!cursor.isAfterLast()){
+			int indexId = cursor.getColumnIndex("id");
+			int indexDescription = cursor.getColumnIndex("description");
+			int indexType = cursor.getColumnIndex("type");
+
+			Goal goal=new Goal();
+			goal.setId(cursor.getLong(indexId));
+			goal.setDescription(cursor.getString(indexDescription));
+			goal.setType(cursor.getString(indexType));
+			goals.add(goal);
+			cursor.moveToNext();
+		}
+		cursor.close();
+		this.close();
+		return goals;
+	}
 
 
     /**
