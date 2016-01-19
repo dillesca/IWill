@@ -1,11 +1,14 @@
 <resources>
+    <string name="add_year_goal">Add year goal</string>
     <string name="app_name">I Will</string>
-    <string name="in_2016">In 2016 I Will____</string>
+    <string name="in_2016">In 2016 I Will ____</string>
     <string name="manage_daily_goals">Manage daily goals</string>
     <string name="manage_year_goals">Manage yearly goals</string>
+    <string name="please_fill_out">Please fill out your goal for the year</string>
     <string name="settings">Settings</string>
     <string name="submit">Submit</string>
     <string name="time_to_set_year_goal">Time to set a goal for</string>
     <string name="view_medals">View Medals</string>
     <string name="whats_ur_goal">What is your goal for the year?</string>
+    <string name="you_have_not_set_year_resolution">You have not set a resolution for the year</string>
 </resources>

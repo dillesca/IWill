@@ -23,15 +23,24 @@
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize">
         <LinearLayout
             android:id="@+id/viewA"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.6"
-            android:background="@android:color/holo_purple"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_year_goals"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="false"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:textSize="20sp"
+                android:text="@string/you_have_not_set_year_resolution"/>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/viewB"
@@ -39,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.4"
             android:background="@android:color/holo_orange_light"
-            android:orientation="horizontal" >x
+            android:orientation="horizontal" >
             <include layout="@layout/content_iwill" />
         </LinearLayout>
 

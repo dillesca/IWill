@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.gxb.iwill.IWill">
     <item
+        android:id="@+id/action_add_yearly"
+        android:orderInCategory="100"
+        android:title="@string/add_year_goal"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_yearly"
         android:orderInCategory="100"
         android:title="@string/manage_year_goals"
@@ -17,4 +22,5 @@
         android:orderInCategory="100"
         android:title="@string/view_medals"
         app:showAsAction="never" />
+
 </menu>
